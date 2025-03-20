@@ -19,7 +19,79 @@
   <property name="windowTitle">
    <string>Messenger by exq</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* Основное окно */
+QMainWindow {
+    background-color: #f4f4f4;
+}
+
+/* Верхняя панель */
+QWidget#topBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+/* Кнопки сверху (заменены на иконки) */
+QPushButton {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    qproperty-iconSize: 24px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Список чатов */
+QListWidget {
+    background-color: #ffffff;
+    border-right: 1px solid #dcdcdc;
+}
+
+QListWidget::item {
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+QListWidget::item:selected {
+    background-color: #cce5ff;
+}
+
+/* Основное поле чата */
+QTextBrowser {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Поле ввода */
+QTextEdit {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Кнопка отправки */
+QPushButton#sendButton {
+    background-color: #0078d7;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+QPushButton#sendButton:hover {
+    background-color: #005bb5;
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -101,7 +173,7 @@
             <widget class="QPushButton" name="pushButton">
              <property name="minimumSize">
               <size>
-               <width>25</width>
+               <width>0</width>
                <height>0</height>
               </size>
              </property>
@@ -118,7 +190,7 @@
             <widget class="QPushButton" name="pushButton_2">
              <property name="minimumSize">
               <size>
-               <width>25</width>
+               <width>0</width>
                <height>0</height>
               </size>
              </property>
@@ -209,7 +281,7 @@
             <widget class="QPushButton" name="pushButton_3">
              <property name="minimumSize">
               <size>
-               <width>25</width>
+               <width>0</width>
                <height>0</height>
               </size>
              </property>
@@ -226,7 +298,7 @@
             <widget class="QPushButton" name="pushButton_4">
              <property name="minimumSize">
               <size>
-               <width>25</width>
+               <width>0</width>
                <height>0</height>
               </size>
              </property>
@@ -264,8 +336,36 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QListWidget#listWidget {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    outline: none;
+}
+QListWidget#listWidget::item {
+    background-color: transparent;
+    height: 60px;
+    border-bottom: 1px solid #E4E6E9;
+    padding: 5px;
+}
+QListWidget#listWidget::item:selected {
+    background-color: #ECF2FD;
+    border-radius: 5px;
+    color: #2E3440;
+}
+
+QListWidget#listWidget::item:hover {
+    background-color: #F5F7FA;
+    border-radius: 5px;
+}</string>
+         </property>
         </widget>
         <widget class="QWidget" name="widget_3" native="true">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QSplitter" name="splitter_8">
@@ -281,7 +381,7 @@
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>30</height>
+                <height>0</height>
                </size>
               </property>
              </widget>
