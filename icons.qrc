@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/call.png</file>
+        <file>icons/logo.png</file>
+        <file>icons/profile.png</file>
+        <file>icons/videoCall.png</file>
+    </qresource>
+</RCC>

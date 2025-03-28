@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSize>
+#include <QPixmap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

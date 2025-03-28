@@ -76,15 +76,15 @@ QTextEdit {
 }
 
 /* Кнопка отправки */
-QPushButton#sendButton {
-    background-color: #0078d7;
+QPushButton#send_b {
+    background-color: rgb(59, 59, 59);
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
 }
 
-QPushButton#sendButton:hover {
-    background-color: #005bb5;
+QPushButton#send_b:hover {
+    background-color: rgb(125, 125, 125);
 }
 </string>
   </property>
@@ -113,7 +113,7 @@ QPushButton#sendButton:hover {
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="myProfile_l">
              <property name="minimumSize">
               <size>
                <width>30</width>
@@ -129,8 +129,11 @@ QPushButton#sendButton:hover {
              <property name="text">
               <string>Picon</string>
              </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
             </widget>
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="myName_l">
              <property name="minimumSize">
               <size>
                <width>50</width>
@@ -170,7 +173,7 @@ QPushButton#sendButton:hover {
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="personalization_b">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -184,10 +187,10 @@ QPushButton#sendButton:hover {
               </size>
              </property>
              <property name="text">
-              <string>pers</string>
+              <string/>
              </property>
             </widget>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="settings_b">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -201,7 +204,7 @@ QPushButton#sendButton:hover {
               </size>
              </property>
              <property name="text">
-              <string>sett</string>
+              <string/>
              </property>
             </widget>
            </widget>
@@ -221,24 +224,30 @@ QPushButton#sendButton:hover {
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
-            <widget class="QLabel" name="label_3">
+            <widget class="QLabel" name="theyProfile_l">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>30</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>240</width>
+               <width>30</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="mouseTracking">
+              <bool>true</bool>
              </property>
              <property name="text">
               <string>Cicon</string>
              </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
             </widget>
-            <widget class="QLabel" name="label_4">
+            <widget class="QLabel" name="theyName_l">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -278,7 +287,7 @@ QPushButton#sendButton:hover {
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="call_b">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -292,10 +301,16 @@ QPushButton#sendButton:hover {
               </size>
              </property>
              <property name="text">
-              <string>Call</string>
+              <string/>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>5</width>
+               <height>5</height>
+              </size>
              </property>
             </widget>
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="videoCall_b">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -309,7 +324,7 @@ QPushButton#sendButton:hover {
               </size>
              </property>
              <property name="text">
-              <string>Vcall</string>
+              <string/>
              </property>
             </widget>
            </widget>
@@ -385,7 +400,7 @@ QListWidget#listWidget::item:hover {
                </size>
               </property>
              </widget>
-             <widget class="QPushButton" name="pushButton_5">
+             <widget class="QPushButton" name="send_b">
               <property name="text">
                <string>send</string>
               </property>
