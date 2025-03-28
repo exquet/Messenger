@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QSize>
 #include <QPixmap>
+#include <QTextBrowser>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,6 +19,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_send_b_clicked();
 
 private:
     Ui::MainWindow *ui;

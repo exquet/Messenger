@@ -13,16 +13,31 @@ MainWindow::MainWindow(QWidget *parent)
     ui->videoCall_b->setIcon(QIcon("://icons/videoCall.png"));
     ui->myProfile_l->setPixmap(QPixmap("://icons/profile.png"));
     ui->theyProfile_l->setPixmap(QPixmap("://icons/profile.png"));
-
+    ui->settings_b->setIcon(QIcon("://icons/settings.png"));
+    ui->personalization_b->setIcon(QIcon("://icons/custom.png"));
     QPixmap profilePixmap(":/icons/profile.png");
     ui->theyProfile_l->setPixmap(profilePixmap.scaled(
         ui->theyProfile_l->size(),
         Qt::KeepAspectRatio,
         Qt::SmoothTransformation
         ));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_send_b_clicked()
+{
+    QString str = ui->msgText->toPlainText();
+    QTextBrowser *text = ui->textBrowser;
+
+    if (!str.isEmpty()) {
+        ui->msgText->setText("");
+
+        text->append(str);
+    }
+}
+

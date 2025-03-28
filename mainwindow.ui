@@ -116,13 +116,13 @@ QPushButton#send_b:hover {
             <widget class="QLabel" name="myProfile_l">
              <property name="minimumSize">
               <size>
-               <width>30</width>
+               <width>25</width>
                <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>25</width>
                <height>16777215</height>
               </size>
              </property>
@@ -146,8 +146,13 @@ QPushButton#send_b:hover {
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>6</pointsize>
+              </font>
+             </property>
              <property name="text">
-              <string>Pname</string>
+              <string>Account name</string>
              </property>
             </widget>
            </widget>
@@ -162,7 +167,7 @@ QPushButton#send_b:hover {
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>5</width>
               <height>20</height>
              </size>
             </property>
@@ -261,7 +266,7 @@ QPushButton#send_b:hover {
               </size>
              </property>
              <property name="text">
-              <string>Cname</string>
+              <string>interlocutor name</string>
              </property>
             </widget>
            </widget>
@@ -305,8 +310,8 @@ QPushButton#send_b:hover {
              </property>
              <property name="iconSize">
               <size>
-               <width>5</width>
-               <height>5</height>
+               <width>24</width>
+               <height>24</height>
               </size>
              </property>
             </widget>
@@ -392,7 +397,7 @@ QListWidget#listWidget::item:hover {
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
-             <widget class="QTextEdit" name="textEdit">
+             <widget class="QTextEdit" name="msgText">
               <property name="minimumSize">
                <size>
                 <width>0</width>
