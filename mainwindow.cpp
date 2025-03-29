@@ -58,6 +58,20 @@ void MainWindow::on_addAcc_b_clicked()
     layout->addWidget(lineText);
     layout->addWidget(buttonBox);
 
+    //cancel
+    connect(buttonBox, &QDialogButtonBox::rejected, [=]() {
+        qd->reject();
+    });
+
+    //ok
+    connect(buttonBox, &QDialogButtonBox::accepted, [=]() {
+        QString userName = lineText->text().trimmed(); // removing spaces
+        QListWidget *users = ui->usersList;
+        users->addItem(userName);
+        qd->reject();
+    });
+
+
     qd->exec();
     qd->deleteLater();
 }
