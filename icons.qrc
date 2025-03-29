@@ -4,7 +4,7 @@
         <file>icons/logo.png</file>
         <file>icons/profile.png</file>
         <file>icons/videoCall.png</file>
-        <file>icons/custom.png</file>
         <file>icons/settings.png</file>
+        <file>icons/add.png</file>
     </qresource>
 </RCC>

@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->myProfile_l->setPixmap(QPixmap("://icons/profile.png"));
     ui->theyProfile_l->setPixmap(QPixmap("://icons/profile.png"));
     ui->settings_b->setIcon(QIcon("://icons/settings.png"));
-    ui->personalization_b->setIcon(QIcon("://icons/custom.png"));
+    ui->addAcc_b->setIcon(QIcon("://icons/add.png"));
     QPixmap profilePixmap(":/icons/profile.png");
     ui->theyProfile_l->setPixmap(profilePixmap.scaled(
         ui->theyProfile_l->size(),
@@ -35,9 +35,30 @@ void MainWindow::on_send_b_clicked()
     QTextBrowser *text = ui->textBrowser;
 
     if (!str.isEmpty()) {
-        ui->msgText->setText("");
+        ui->msgText->clear();
 
         text->append(str);
     }
+}
+
+
+void MainWindow::on_addAcc_b_clicked()
+{
+    QDialog *qd = new QDialog(this);
+    qd->setWindowTitle("authorization");
+
+    QVBoxLayout *layout = new QVBoxLayout(qd);
+    QLabel *text = new QLabel(qd);
+    text->setText("enter the user's username");
+    QLineEdit *lineText = new QLineEdit(qd);
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(
+        QDialogButtonBox::Ok | QDialogButtonBox::Cancel, qd);
+
+    layout->addWidget(text);
+    layout->addWidget(lineText);
+    layout->addWidget(buttonBox);
+
+    qd->exec();
+    qd->deleteLater();
 }
 

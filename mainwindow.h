@@ -5,6 +5,10 @@
 #include <QSize>
 #include <QPixmap>
 #include <QTextBrowser>
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QDialogButtonBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,7 +27,10 @@ public:
 private slots:
     void on_send_b_clicked();
 
+    void on_addAcc_b_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
+
