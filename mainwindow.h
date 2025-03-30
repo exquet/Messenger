@@ -9,6 +9,7 @@
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QDialogButtonBox>
+#include <QScrollBar>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

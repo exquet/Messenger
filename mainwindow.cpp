@@ -35,9 +35,24 @@ void MainWindow::on_send_b_clicked()
     QTextBrowser *text = ui->textBrowser;
 
     if (!str.isEmpty()) {
-        ui->msgText->clear();
+        if (ui->usersList->currentItem()) {
+            ui->msgText->clear();
 
-        text->append(str);
+            //html форматирование
+            QString formattedMessage = QString("<div style='text-align: right; margin: 5px;'>"
+                                               "<span style='background-color: #E0E0E0; "
+                                               "border-radius: 10px; padding: 8px; "
+                                               "display: inline-block; max-width: 80%;'>"
+                                               "%1</span></div>").arg(str); // %1 - placeholder
+
+            text->insertHtml(formattedMessage); //вставка html отфарматированного текста
+
+            text->append("");
+            text->verticalScrollBar()->setValue(text->verticalScrollBar()->maximum());
+        }
+        else {
+            ui->msgText->clear();
+        }
     }
 }
 
