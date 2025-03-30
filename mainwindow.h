@@ -30,6 +30,8 @@ private slots:
 
     void on_addAcc_b_clicked();
 
+    void on_settings_b_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

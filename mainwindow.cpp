@@ -91,3 +91,35 @@ void MainWindow::on_addAcc_b_clicked()
     qd->deleteLater();
 }
 
+
+void MainWindow::on_settings_b_clicked()
+{
+    QDialog *qd = new QDialog(this);
+    qd->setWindowTitle("settings");
+
+    QVBoxLayout *layout = new QVBoxLayout(qd);
+    QLineEdit *lineText = new QLineEdit(qd);
+    QLabel *text = new QLabel(qd);
+    text->setText("enter your username");
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(
+        QDialogButtonBox::Apply | QDialogButtonBox::Cancel, qd);
+
+    layout->addWidget(text);
+    layout->addWidget(lineText);
+    layout->addWidget(buttonBox);
+
+    //cancel
+    connect(buttonBox, &QDialogButtonBox::rejected, [=]() {
+        qd->reject();
+    });
+
+    //appy
+    connect(buttonBox, &QDialogButtonBox::clicked, [=]() {
+        QString userName = lineText->text().trimmed(); // removing spaces
+        ui->myName_l->setText(userName);
+    });
+
+    qd->exec();
+    qd->deleteLater();
+}
+
