@@ -123,3 +123,10 @@ void MainWindow::on_settings_b_clicked()
     qd->deleteLater();
 }
 
+
+void MainWindow::on_usersList_itemClicked(QListWidgetItem *item)
+{
+    QString name = item->text();
+    ui->theyName_l->setText(name);
+}
+

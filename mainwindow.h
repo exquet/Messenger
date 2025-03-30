@@ -10,6 +10,7 @@
 #include <QLineEdit>
 #include <QDialogButtonBox>
 #include <QScrollBar>
+#include <QListWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,6 +32,8 @@ private slots:
     void on_addAcc_b_clicked();
 
     void on_settings_b_clicked();
+
+    void on_usersList_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
