@@ -11,6 +11,8 @@
 #include <QDialogButtonBox>
 #include <QScrollBar>
 #include <QListWidget>
+#include <QShortcut>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,6 +28,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 private slots:
     void on_send_b_clicked();
 
@@ -37,6 +42,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H
 

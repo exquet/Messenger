@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
         Qt::SmoothTransformation
         ));
 
+    ui->msgText->installEventFilter(this); // key event
+    QShortcut *playShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this); // enter
+    connect(playShortcut, &QShortcut::activated, this, &MainWindow::on_send_b_clicked);
+
 }
 
 MainWindow::~MainWindow()
@@ -129,4 +133,17 @@ void MainWindow::on_usersList_itemClicked(QListWidgetItem *item)
     QString name = item->text();
     ui->theyName_l->setText(name);
 }
+
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui->msgText && event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event); // преобразует QEvent* в QKeyEvent*.
+        if (keyEvent->key() == Qt::Key_Return) {
+            on_send_b_clicked();
+            return true;
+        }
+    }
+    return QMainWindow::eventFilter(obj, event); // default
+}
+
 
