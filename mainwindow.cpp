@@ -38,25 +38,26 @@ void MainWindow::on_send_b_clicked()
     QString str = ui->msgText->toPlainText();
     QTextBrowser *text = ui->textBrowser;
 
-    if (!str.isEmpty()) {
-        if (ui->usersList->currentItem()) {
-            ui->msgText->clear();
+    if (currentUserName.isEmpty()) {
+        str.clear();
+    }
 
-            //html форматирование
-            QString formattedMessage = QString("<div style='text-align: right; margin: 5px;'>"
-                                               "<span style='background-color: #E0E0E0; "
-                                               "border-radius: 10px; padding: 8px; "
-                                               "display: inline-block; max-width: 80%;'>"
-                                               "%1</span></div>").arg(str); // %1 - placeholder
+    if (!str.isEmpty() && !currentUserName.isEmpty()) {
+        ui->msgText->clear();
 
-            text->insertHtml(formattedMessage); //вставка html отфарматированного текста
+        //html форматирование
+        QString formattedMessage = QString("<div style='text-align: right; margin: 5px;'>"
+                                           "<span style='background-color: #E0E0E0; "
+                                           "border-radius: 10px; padding: 8px; "
+                                           "display: inline-block; max-width: 80%;'>"
+                                           "%1</span></div>").arg(str); // %1 - placeholder
 
-            text->append("");
-            text->verticalScrollBar()->setValue(text->verticalScrollBar()->maximum());
-        }
-        else {
-            ui->msgText->clear();
-        }
+        text->insertHtml(formattedMessage); //вставка html отфарматированного текста
+
+        text->append("");
+        text->verticalScrollBar()->setValue(text->verticalScrollBar()->maximum());
+
+        userChat[currentUserName] = text->toHtml();
     }
 }
 
@@ -130,8 +131,20 @@ void MainWindow::on_settings_b_clicked()
 
 void MainWindow::on_usersList_itemClicked(QListWidgetItem *item)
 {
-    QString name = item->text();
-    ui->theyName_l->setText(name);
+    if (!currentUserName.isEmpty()) {
+        userChat[currentUserName] = ui->textBrowser->toHtml(); // возвращает html отформат. текст
+    }
+
+    currentUserName = item->text();
+    ui->theyName_l->setText(currentUserName);
+
+    if (userChat.contains(currentUserName)) { // проверка содержится ли
+        ui->textBrowser->setHtml(userChat[currentUserName]);
+    }
+    else {
+        ui->textBrowser->clear();
+    }
+
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)

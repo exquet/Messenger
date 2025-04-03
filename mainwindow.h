@@ -13,6 +13,7 @@
 #include <QListWidget>
 #include <QShortcut>
 #include <QKeyEvent>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -42,6 +43,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    QString currentUserName;
+    QMap<QString, QString> userChat;
 
 };
 #endif // MAINWINDOW_H
