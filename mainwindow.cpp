@@ -201,10 +201,40 @@ void MainWindow::on_call_b_clicked()
 
 void MainWindow::on_videoCall_b_clicked()
 {
-    QDialog *qd = new QDialog(this);
-    qd->setWindowTitle("Video call");
+    if (!currentUserName.isEmpty()) {
+        QDialog *qd = new QDialog(this);
+        qd->setWindowTitle("Video call");
 
-    qd->exec();
-    qd->deleteLater();
+        QVBoxLayout *layout = new QVBoxLayout(qd);
+        QLabel *name = new QLabel(qd);
+        name->setText(currentUserName);
+        QLabel *pic = new QLabel(qd);
+        pic->setPixmap(QPixmap("://icons/roflo.png"));
+        pic->pixmap().scaled(200, 200, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        pic->setAlignment(Qt::AlignCenter);
+        pic->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        pic->setMaximumSize(200, 200);
+
+        QPushButton *audioCall_b = new QPushButton(qd);
+        audioCall_b->setText("swap to audio");
+        QPushButton *micMute_b = new QPushButton(qd);
+        micMute_b->setText("mic mute");
+        QPushButton *vidOff_b = new QPushButton(qd);
+        vidOff_b->setText("video off");
+        QPushButton *callLeave_b = new QPushButton(qd);
+        callLeave_b->setText("leave");
+        QHBoxLayout *buttonLayout = new QHBoxLayout(qd);
+        buttonLayout->addWidget(audioCall_b);
+        buttonLayout->addWidget(vidOff_b);
+        buttonLayout->addWidget(micMute_b);
+        buttonLayout->addWidget(callLeave_b);
+
+        layout->addWidget(name);
+        layout->addWidget(pic);
+        layout->addLayout(buttonLayout);
+
+        qd->exec();
+        qd->deleteLater();
+    }
 }
 

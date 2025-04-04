@@ -6,5 +6,6 @@
         <file>icons/videoCall.png</file>
         <file>icons/settings.png</file>
         <file>icons/add.png</file>
+        <file>icons/roflo.png</file>
     </qresource>
 </RCC>
