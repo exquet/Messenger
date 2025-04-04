@@ -171,11 +171,31 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
 void MainWindow::on_call_b_clicked()
 {
-    QDialog *qd = new QDialog(this);
-    qd->setWindowTitle("Call");
+    if (!currentUserName.isEmpty()) {
+        QDialog *qd = new QDialog(this);
+        qd->setWindowTitle("Call");
 
-    qd->exec();
-    qd->deleteLater();
+        QVBoxLayout *layout = new QVBoxLayout(qd);
+        QLabel *name = new QLabel(qd);
+        name->setText(currentUserName);
+
+        QPushButton *vidCall_b = new QPushButton(qd);
+        vidCall_b->setText("swap to video");
+        QPushButton *micMute_b = new QPushButton(qd);
+        micMute_b->setText("mic mute");
+        QPushButton *callLeave_b = new QPushButton(qd);
+        callLeave_b->setText("leave");
+        QHBoxLayout *buttonLayout = new QHBoxLayout(qd);
+        buttonLayout->addWidget(vidCall_b);
+        buttonLayout->addWidget(micMute_b);
+        buttonLayout->addWidget(callLeave_b);
+
+        layout->addWidget(name);
+        layout->addLayout(buttonLayout);
+
+        qd->exec();
+        qd->deleteLater();
+    }
 }
 
 
