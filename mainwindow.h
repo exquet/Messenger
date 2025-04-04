@@ -41,6 +41,10 @@ private slots:
 
     void on_usersList_itemClicked(QListWidgetItem *item);
 
+    void on_call_b_clicked();
+
+    void on_videoCall_b_clicked();
+
 private:
     Ui::MainWindow *ui;
 

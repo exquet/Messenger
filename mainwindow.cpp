@@ -168,3 +168,23 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 }
 
 
+
+void MainWindow::on_call_b_clicked()
+{
+    QDialog *qd = new QDialog(this);
+    qd->setWindowTitle("Call");
+
+    qd->exec();
+    qd->deleteLater();
+}
+
+
+void MainWindow::on_videoCall_b_clicked()
+{
+    QDialog *qd = new QDialog(this);
+    qd->setWindowTitle("Video call");
+
+    qd->exec();
+    qd->deleteLater();
+}
+
