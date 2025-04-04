@@ -45,16 +45,24 @@ void MainWindow::on_send_b_clicked()
     if (!str.isEmpty() && !currentUserName.isEmpty()) {
         ui->msgText->clear();
 
-        //html форматирование
-        QString formattedMessage = QString("<div style='text-align: right; margin: 5px;'>"
+        //html форматирование | %1 - placeholder
+        QString formattedMessage = QString("<div align='right' style='margin: 5px;'>"
                                            "<span style='background-color: #E0E0E0; "
                                            "border-radius: 10px; padding: 8px; "
                                            "display: inline-block; max-width: 80%;'>"
-                                           "%1</span></div>").arg(str); // %1 - placeholder
+                                           "%1</span></div>").arg(str);
 
-        text->insertHtml(formattedMessage); //вставка html отфарматированного текста
+        QString currentHtml = text->toHtml();
+        // вставляем новое сообщение перед закрывающим тегом body
+        int bodyEndPos = currentHtml.lastIndexOf("</body>");
+        if (bodyEndPos != -1) {
+            currentHtml.insert(bodyEndPos, formattedMessage);
+            text->setHtml(currentHtml);
+        } else {
+            text->insertHtml(formattedMessage);
+        }
 
-        text->append("");
+        //text->append("");
         text->verticalScrollBar()->setValue(text->verticalScrollBar()->maximum());
 
         userChat[currentUserName] = text->toHtml();
